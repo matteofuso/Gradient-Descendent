@@ -6,16 +6,14 @@
 
 class Function{
     public:
-        Function();
-        double evaluate(const Point& p) const;
-        double evaluate_dx(const Point& p) const;//return partial deritive in x
-        double evaluate_dy(const Point& p) const;//return partial deritive in y
-        Vector2D evaluate_gradient(const Point& p) const;//return gradient
-        const std::string& to_string() const; 
-    private:
-        static constexpr std::string rappresentation;//func rappresentation as a string
-                   
+        virtual ~Function() = default;
+        virtual double evaluate(const Point& p) const = 0;
+        virtual double evaluate_dx(const Point& p) const = 0;//return partial deritive in x
+        virtual double evaluate_dy(const Point& p) const = 0;//return partial deritive in y
+        virtual Vector2D evaluate_gradient(const Point& p) const = 0;//return gradient
+        virtual std::string to_string() const = 0;
 };
 
+std::ostream& operator<<(std::ostream &out, const Function& f);
 
 #endif
