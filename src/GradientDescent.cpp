@@ -18,7 +18,7 @@ GradientDescent::Result GradientDescent::gradient_descent(const Function& f, con
     Point point_k = p;
     unsigned int k = 0;
     Vector2D gradient_k = f.evaluate_gradient(point_k);
-    while(k < max_iteractions && gradient_k.magnitude()){
+    while(k < max_iteractions && gradient_k.magnitude() && domain.contains(point_k)){
         point_k = point_k - step * gradient_k;
         k++;
         gradient_k = f.evaluate_gradient(point_k);

@@ -1,6 +1,8 @@
 #ifndef RECTANGULARINTERVAL_H
 #define RECTANGULARINTERVAL_H
 
+#include "Point.h"
+
 class RectangularInterval{
     public:
         RectangularInterval();

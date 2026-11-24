@@ -1,6 +1,8 @@
 #ifndef POINT_H
 #define POINT_H
 
+#include "Vector2D.h"
+
 class Point{
     public:
         Point();
