@@ -14,4 +14,8 @@ class Vector2D{
         double y;
 };
 
+Vector2D operator * (const Vector2D& v, double scalar);
+
+Vector2D operator * (double scalar, const Vector2D& v);
+
 #endif

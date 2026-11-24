@@ -5,7 +5,7 @@
 #include "RectangularInterval.h"
 
 namespace GradientDescent {
-    double gradient_descent(const Function& f, const RectangularInterval& domain, const Point& p, double step, unsigned int N);
+    double gradient_descent(const Function& f, const RectangularInterval& domain, const Point& p, double step, double expected_min, unsigned int max_iteractions);
 }
 
 #endif

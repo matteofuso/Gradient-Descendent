@@ -13,4 +13,6 @@ class Point{
         double y;
 };
 
+Point operator - (const Point& p, const Vector2D& v);
+
 #endif
