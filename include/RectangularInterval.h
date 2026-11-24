@@ -9,7 +9,7 @@ class RectangularInterval{
         double getX2() const;
         double getY1() const;
         double getY2() const;
-        
+        bool contains(const Point& p) const;
     private:
         double x1, x2;
         double y1, y2;
