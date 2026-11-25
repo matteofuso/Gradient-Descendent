@@ -17,24 +17,40 @@ struct Example {
     double expected_min;
 };
 
-void print_result(Example e, int step_print){
+void print_result(const Example& e, int step_print){
     std::cout << "Function: " << e.f << std::endl;
     std::cout << "Final Point - Final Value - Final Gradient Magnitude - Iteration - Status - Error" << std::endl;
+
     int step = e.max_iteration / step_print;
     int step_remainder = e.max_iteration % step_print;
-    Point starting_point = e.starting_point;
+    Point current_point = e.starting_point;
+    unsigned int total_iterations = 0; //keeps track of steps done
+
     for (int i = 0; i < step; i++)
     {
-        Result r = gradient_descent(e.f, e.domain, starting_point, e.step, step_print);
+        Result r = gradient_descent(e.f, e.domain, current_point, e.step, step_print);
+        //updating the iteractions counter before printing it
+        total_iterations += r.iterations;
+        r.iterations = total_iterations;
         std::cout << r << " - " << r.final_value - e.expected_min << std::endl;
-        starting_point = r.final_point;
-        if (r.status == Status::Converged){
+        
+        current_point = r.final_point; //updates starting point for next cycle
+
+        if (r.status != Status::MaxIterationsReached){ //ends function if algorithm converges or diverges
             std::cout << std::endl;
             return;
         }
     }
-    Result r = gradient_descent(e.f, e.domain, starting_point, e.step, step_remainder);
-    std::cout << r << " - " << r.final_value - e.expected_min << std::endl << std::endl;
+
+    if(step_remainder > 0){
+        Result r = gradient_descent(e.f, e.domain, current_point, e.step, step_remainder);
+        total_iterations += r.iterations;
+        r.iterations = total_iterations;
+        std::cout << r << " - " << r.final_value - e.expected_min << std::endl << std::endl;
+    }
+
+    std::cout << std::endl;
+  
 }
 
 int main(int argc, char **argv){
