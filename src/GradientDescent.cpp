@@ -10,7 +10,7 @@ namespace GradientDescent
         if (!domain.contains(p))
             throw OutOfDomainException();
 
-        if (step < 0)
+        if (step <= 0)
             throw InvalidStepException();
 
         Status s;
