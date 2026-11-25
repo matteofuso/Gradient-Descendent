@@ -3,6 +3,13 @@
 #include <cmath>
 #include "../include/Constants.h"
 
+//EACH FUNCTION IS THE SAME
+//it calls the super constructor to set the string reprensation
+//it then fills the methods defined in the class Function as needed based on each specific mathematical function
+
+//
+//FIRST FUNCTION
+//
 F1::F1() : Function{"(x^2 + y^2)/2"} {}
 
 double F1::evaluate(const Point &p) const
@@ -21,6 +28,9 @@ double F1::evaluate_dy(const Point &p) const
     return y;
 }
 
+//
+//SECOND FUNCTION
+//
 F2::F2() : Function{"(x^2 + 16y^2)/2"} {}
 
 double F2::evaluate(const Point &p) const
@@ -37,6 +47,9 @@ double F2::evaluate_dy(const Point &p) const
     return 16 * p.getY();
 }
 
+//
+//THIRD FUNCTION
+//
 F3::F3() : Function{"(x^2-1)^2 + y^2"} {}
 
 double F3::evaluate(const Point &p) const
@@ -54,6 +67,10 @@ double F3::evaluate_dy(const Point &p) const
     return 2 * p.getY();
 }
 
+
+//
+//FOURTH FUNCTION
+//
 F4::F4() : Function{"(x^2 - 1)^2 + ((x-1)^2)/5 + y^2"} {}
 
 double F4::evaluate(const Point &p) const
@@ -71,6 +88,10 @@ double F4::evaluate_dy(const Point &p) const
     return 2 * p.getY();
 }
 
+
+//
+//FIFTH FUNCTION
+//
 F5::F5() : Function{"4(sinh(x/2))^2 + y^2"} {}
 
 double F5::evaluate(const Point &p) const
@@ -88,6 +109,10 @@ double F5::evaluate_dy(const Point &p) const
     return 2 * p.getY();
 }
 
+
+//
+//SIXTH FUNCTION
+//
 F6::F6() : Function{"ln(1 + x^2 + y^2)"} {}
 
 double F6::evaluate(const Point &p) const
@@ -108,6 +133,10 @@ double F6::evaluate_dy(const Point &p) const
     return 2 * y / (1 + x * x + y * y);
 }
 
+
+//
+//SEVENTH FUNCTION
+//
 F7::F7() : Function{"1 - e^(-x^2 -y^2)"} {}
 
 double F7::evaluate(const Point &p) const
@@ -128,6 +157,10 @@ double F7::evaluate_dy(const Point &p) const
     return 2 * y * std::exp(-(x * x + y * y));
 }
 
+
+//
+//EIGHT FUNCTION
+//
 F8::F8() : Function{"2 - cos(pi * x) - cos(pi * y)"} {}
 
 double F8::evaluate(const Point &p) const
