@@ -4,17 +4,24 @@
 #include "Function.h"
 #include "RectangularInterval.h"
 
-namespace GradientDescent {
-    class OutOfDomainException{};
-    class InvalidStepException{};
+namespace GradientDescent
+{
+    class OutOfDomainException
+    {
+    };
+    class InvalidStepException
+    {
+    };
 
-    enum class Status {
+    enum class Status
+    {
         Converged,
         Diverged,
         MaxIterationsReached
     };
 
-    struct Result {
+    struct Result
+    {
         Point final_point;
         double final_value;
         double final_gradient_magnitude;
@@ -22,10 +29,10 @@ namespace GradientDescent {
         Status status;
     };
 
-    Result gradient_descent(const Function& f, const RectangularInterval& domain, const Point& p, double step, unsigned int max_iteractions, double epsilon = 1E-6);
+    Result gradient_descent(const Function &f, const RectangularInterval &domain, const Point &p, double step, unsigned int max_iteractions, double epsilon = 1E-6);
 
-    std::ostream& operator<<(std::ostream& out, const Status& status);
-    std::ostream& operator << (std::ostream& out, const Result& res);
+    std::ostream &operator<<(std::ostream &out, const Status &status);
+    std::ostream &operator<<(std::ostream &out, const Result &res);
 }
 
 #endif

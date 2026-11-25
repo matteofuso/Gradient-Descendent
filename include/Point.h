@@ -4,19 +4,20 @@
 #include "Vector2D.h"
 #include <iostream>
 
-class Point{
-    public:
-        Point();
-        Point(double x, double y);
-        double getX() const;
-        double getY() const;
-        
-    private:
-        double x;
-        double y;
+class Point
+{
+public:
+    Point();
+    Point(double x, double y);
+    double getX() const;
+    double getY() const;
+
+private:
+    double x;
+    double y;
 };
 
-Point operator - (const Point& p, const Vector2D& v);
-std::ostream& operator << (std::ostream& out, const Point& point);
+Point operator-(const Point &p, const Vector2D &v);
+std::ostream &operator<<(std::ostream &out, const Point &point);
 
 #endif

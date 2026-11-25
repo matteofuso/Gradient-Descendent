@@ -3,26 +3,32 @@
 
 RectangularInterval::RectangularInterval() : x1{0}, x2{0}, y1{0}, y2{0} {}
 RectangularInterval::RectangularInterval(double x1, double x2, double y1, double y2) : x1{x1}, x2{x2}, y1{y1}, y2{y2} {}
-double RectangularInterval::getX1() const{
+double RectangularInterval::getX1() const
+{
     return x1;
 }
-double RectangularInterval::getX2() const{
+double RectangularInterval::getX2() const
+{
     return x2;
 }
-double RectangularInterval::getY1() const{
+double RectangularInterval::getY1() const
+{
     return y1;
 }
-double RectangularInterval::getY2() const{
+double RectangularInterval::getY2() const
+{
     return y2;
 }
-bool RectangularInterval::contains(const Point& p) const{
+bool RectangularInterval::contains(const Point &p) const
+{
     double x = p.getX();
     double y = p.getY();
 
     return (x >= x1 && x <= x2 && y >= y1 && y <= y2);
 }
 
-std::ostream& operator << (std::ostream& out, const RectangularInterval& point){
+std::ostream &operator<<(std::ostream &out, const RectangularInterval &point)
+{
     out << "[" << point.getX1() << ", " << point.getX2() << "]x[" << point.getY1() << ", " << point.getY2() << "]";
     return out;
 }

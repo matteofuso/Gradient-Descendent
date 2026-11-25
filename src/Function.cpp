@@ -4,15 +4,18 @@
 #include <iostream>
 #include <string>
 
-Function::Function(std::string expression) : expression{expression}{} 
+Function::Function(std::string expression) : expression{expression} {}
 
-Vector2D Function::evaluate_gradient(const Point& p) const{
+Vector2D Function::evaluate_gradient(const Point &p) const
+{
     return Vector2D(evaluate_dx(p), evaluate_dy(p));
 }
-const std::string& Function::to_string() const{
+const std::string &Function::to_string() const
+{
     return expression;
 }
 
-std::ostream& operator<<(std::ostream &out, const Function& f){
+std::ostream &operator<<(std::ostream &out, const Function &f)
+{
     return out << f.to_string();
 }
