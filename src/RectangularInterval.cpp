@@ -21,3 +21,8 @@ bool RectangularInterval::contains(const Point& p) const{
 
     return (x >= x1 && x <= x2 && y >= y1 && y <= y2);
 }
+
+std::ostream& operator << (std::ostream& out, const RectangularInterval& point){
+    out << "[" << point.getX1() << ", " << point.getX2() << "]x[" << point.getY1() << ", " << point.getY2() << "]";
+    return out;
+}

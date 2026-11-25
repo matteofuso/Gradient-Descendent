@@ -17,14 +17,14 @@ namespace GradientDescent {
     struct Result {
         Point final_point;
         double final_value;
-        double final_error;
         double final_gradient_magnitude;
         unsigned int iterations;
         Status status;
     };
 
-    Result gradient_descent(const Function& f, const RectangularInterval& domain, const Point& p, double step, double expected_min, unsigned int max_iteractions, double epsilon = 1E-6);
+    Result gradient_descent(const Function& f, const RectangularInterval& domain, const Point& p, double step, unsigned int max_iteractions, double epsilon = 1E-6);
 
+    std::ostream& operator<<(std::ostream& out, const Status& status);
     std::ostream& operator << (std::ostream& out, const Result& res);
 }
 

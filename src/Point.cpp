@@ -13,3 +13,8 @@ double Point::getY() const{
 Point operator - (const Point& p, const Vector2D& v){
     return Point{p.getX() - v.getX(), p.getY() - v.getY()};
 }
+
+std::ostream& operator << (std::ostream& out, const Point& point){
+    out << "(" << point.getX() << ", " << point.getY() << ")";
+    return out;
+}

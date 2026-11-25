@@ -17,4 +17,6 @@ class RectangularInterval{
         double y1, y2;
 };
 
+std::ostream& operator << (std::ostream& out, const RectangularInterval& point);
+
 #endif

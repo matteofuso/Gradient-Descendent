@@ -2,6 +2,7 @@
 #define POINT_H
 
 #include "Vector2D.h"
+#include <iostream>
 
 class Point{
     public:
@@ -16,5 +17,6 @@ class Point{
 };
 
 Point operator - (const Point& p, const Vector2D& v);
+std::ostream& operator << (std::ostream& out, const Point& point);
 
 #endif
