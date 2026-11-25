@@ -5,7 +5,7 @@ COMPONENTI DEL GRUPPO 127.0.0.1:
 
 SUDDIVISIONE DELLE ATTIVITÀ:
 - Progettazione iniziale (lavoro di gruppo):
-  - Definizione e abbozzo dell'architettura iniziale delle classi.
+  -Abbozzato iniziale della struttura del codice e classi.
 
 - Lin Luciano:
   - Scrittura dei file header (.h) sulla base della struttura progettata.
