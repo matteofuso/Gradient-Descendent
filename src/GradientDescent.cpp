@@ -18,17 +18,20 @@ GradientDescent::Result GradientDescent::gradient_descent(const Function& f, con
     Point point_k = p;
     unsigned int k = 0;
     Vector2D gradient_k = f.evaluate_gradient(point_k);
-    while(k < max_iteractions && gradient_k.magnitude() > epsilon && domain.contains(point_k)){
+
+    while(k < max_iteractions && gradient_k.magnitude() >= epsilon && domain.contains(point_k)){
         point_k = point_k - step * gradient_k;
-        k++;
+        ++k;
         gradient_k = f.evaluate_gradient(point_k);
     }
-    if(k == max_iteractions)
+
+    if(!domain.contains(point_k))
+        s = GradientDescent::Status::Diverged;
+    else if(gradient_k.magnitude() < epsilon)
+        s = GradientDescent::Status::Converged;
+    else
         s = GradientDescent::Status::MaxIterationsReached;
-    else if(gradient_k.magnitude() <= epsilon)
-            s = GradientDescent::Status::Converged;
-        else
-            s = GradientDescent::Status::Diverged;
+    
     double f_k = f.evaluate(point_k);
     return GradientDescent::Result { point_k, f_k, f_k - expected_min, gradient_k.magnitude(), k, s};
 }
