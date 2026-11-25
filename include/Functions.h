@@ -3,15 +3,21 @@
 #include "Point.h"
 #include "Function.h"
 
+// Class for the defined function F1, inherit from Abstract Class Function
 class F1 final : public Function
 {
 public:
+    // Default constructor
     F1();
+    // Evaluate and return the function given a point p
     double evaluate(const Point &p) const override;
+    // Evaluate and return the function partial derivative in x given a point p
     double evaluate_dx(const Point &p) const override;
+    // Evaluate and return the function partial derivative in y given a point p
     double evaluate_dy(const Point &p) const override;
 };
 
+// Class definition below are the same as above...
 class F2 final : public Function
 {
 public:
